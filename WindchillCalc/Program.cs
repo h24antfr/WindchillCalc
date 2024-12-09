@@ -6,13 +6,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Labb2_Windchill
+namespace WindchillCalc
     {
     internal class Program
         {
         static void Main(string[] args)
             {
-
             //Datatyp string med identifierare border, används senare för att printa ut en string i konsollen  
             string border = "-----------------------------------------------------";
 
