@@ -25,7 +25,7 @@ namespace WindchillCalc
                 //Metod "Console.Writeline", skriver ut string i konsollen 
                 Console.WriteLine("Vad vill du göra (Ange siffra)");
                 //Metod "Console.Writeline", skriver ut string i konsollen
-                Console.WriteLine("1. Berkäna windchill-faktor");
+                Console.WriteLine("1. Beräkna windchill-faktor");
                 //Metod "Console.Writeline", skriver ut string i konsollen
                 Console.WriteLine("2. Avsluta");
                 //Metod "Console.Write", skriver ut string i konsollen
@@ -39,7 +39,6 @@ namespace WindchillCalc
                     {
                     //case "1" körs om strängen "1" angetts och lästs av via metoden "Console.Readline"    
                     case "1":
-
                         //Datatyp "double" med identifierare "WCT"
                         double WCT;
                         //Datatyp "double" med identifierare "temperature"
@@ -54,11 +53,12 @@ namespace WindchillCalc
                         Console.WriteLine("Fyll i vindhastigheten i km/h: ");
                         //variabel med dentifierare "windSpeed" och datatyp "double", converterar variabeln till "double" från metoden "Console.Readline" efter användarens input
                         windSpeed = Convert.ToDouble(Console.ReadLine());
-
                         //Variablerna med identifierarna "WCT", "temperature" och "windSpeed" sätts in i en formula där de kombinerar med metoden "Math.Pow" och andra beräkningar
                         WCT = 13.12 + 0.6215 * temperature - 11.37 * Math.Pow(windSpeed, 0.16) + 0.3965 * temperature * Math.Pow(windSpeed, 0.16);
+                        WCT = Math.Round(WCT, 1);
                         //Metoden "Console.WriteLine", printar ut string och variabeln med identifieraren "WCT" och datatypen "double" i konsollen
-                        Console.WriteLine("Wind chill temprature är " + WCT);
+                        Console.WriteLine("Windchill temperaturen är " + WCT);
+                        //Metoden Thread.Sleep, låter systemet vila i 1000 milisekunder
                         Thread.Sleep(1000);
 
                         //Metoden "if" kollar om variabeln med identifieraren "WCT" av datatypen "double" är mindre än -60
@@ -89,9 +89,10 @@ namespace WindchillCalc
                         Thread.Sleep(1000);
                         //break bryter case "1" sekvensen
                         break;
+
                     //case "2" körs om strängen "2" angetts och lästs av via metoden "Console.Readline"
                     case "2":
-                        Console.WriteLine("Programet avslutas");
+                        Console.WriteLine("Programmet avslutas");
                         active = false;
                         //Metoden Thread.Sleep, låter systemet vila i 3000 milisekunder
                         Thread.Sleep(3000);
@@ -99,10 +100,10 @@ namespace WindchillCalc
                         Environment.Exit(0);
                         // break bryter case "2" sekvensen
                         break;
+
                     //default sekvens, körs om inget giltligt värde angetts
                     default:
-
-                        Console.WriteLine("Ogiltligt svar");
+                        Console.WriteLine("Ett fel inträffade, försök igen.");
                         //Metoden Thread.Sleep, låter systemet vila i 1000 milisekunder
                         Thread.Sleep(1000);
                         //break bryter default sekvensen
